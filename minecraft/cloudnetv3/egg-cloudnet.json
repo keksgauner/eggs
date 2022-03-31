@@ -1,0 +1,53 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2022-03-31T09:10:39+02:00",
+    "name": "Cloudnet",
+    "author": "admin@kleckzz.de",
+    "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nThe software is currently stable.\r\nYou can use it for a productive network.",
+    "features": null,
+    "images": [
+        "ghcr.io\/pterodactyl\/yolks:java_8",
+        "ghcr.io\/pterodactyl\/yolks:java_11",
+        "ghcr.io\/pterodactyl\/yolks:java_16",
+        "ghcr.io\/pterodactyl\/yolks:java_17"
+    ],
+    "file_denylist": [],
+    "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:-UseAdaptiveSizePolicy -XX:CompileThreshold=100 -Dfile.encoding=UTF-8 -Xms456M -Xmx456M -jar {{SERVER_JARFILE}}",
+    "config": {
+        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"listeners[0].host\": \"{{server.build.ip}}\",\r\n            \"httpListeners[0].host\": \"{{server.build.ip}}\",\r\n            \"hostAddress\": \"{{server.build.ip}}\",\r\n            \"connectHostAddress\": \"{{server.build.ip}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\"\r\n        }\r\n    },\r\n    \"local\/tasks\/Proxy.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"startPort\": \"{{server.build.default.port}}\"\r\n        }\r\n    },\r\n    \"regex:^Proxy.json$\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n           \"startPort\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"For help, use the\",\r\n    \"userInteraction\": [\r\n        \"Go to eula.txt for more info.\"\r\n    ]\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/ash\r\n# Cloudnet Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\ncd \/mnt\/server\r\n\r\ncurl -OJLo CloudNet.zip https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip\r\nunzip -o CloudNet.zip\r\n\r\nrm start.bat start.command start.sh CloudNet.zip",
+            "container": "ghcr.io\/pterodactyl\/installers:alpine",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Cloudnet Version",
+            "description": "The version of Cloudnet to download and use.",
+            "env_variable": "CLOUDNET_VERSION",
+            "default_value": "latest",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|alpha_num|between:1,6"
+        },
+        {
+            "name": "Cloudnet Jar File",
+            "description": "The name of the Jarfile to use when running Cloudnet.",
+            "env_variable": "SERVER_JARFILE",
+            "default_value": "launcher.jar",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|regex:\/^([\\w\\d._-]+)(\\.jar)$\/"
+        }
+    ]
+}
