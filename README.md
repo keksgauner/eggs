@@ -1,5 +1,5 @@
 # Keksgauner Pterodactyl eggs repo
-My custom pterodactyl.io eggs you should never seen
+My custom pterodactyl.io eggs you should never seen before
 
 Look over to [Parkers Pterodactyl eggs repo](https://github.com/parkervcp/eggs)
 
