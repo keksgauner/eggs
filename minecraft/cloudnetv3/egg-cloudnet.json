@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-09-03T23:15:29+02:00",
+    "exported_at": "2022-09-03T23:40:46+02:00",
     "name": "Cloudnet",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
@@ -18,7 +18,7 @@
     "file_denylist": [],
     "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:-UseAdaptiveSizePolicy -XX:CompileThreshold=100 -Dfile.encoding=UTF-8 -Xms456M -Xmx456M -jar {{SERVER_JARFILE}}",
     "config": {
-        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"0.0.0.0\",\r\n            \"identity.listeners[0].port\": \"{{env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"0.0.0.0\",\r\n            \"httpListeners[0].port\": \"{{env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"0.0.0.0\",\r\n            \"connectHostAddress\": \"0.0.0.0\",\r\n            \"maxMemory\": \"{{server.build.memory}}\"\r\n        },\r\n        \"local\/tasks\/Proxy.json\": {\r\n            \"parser\": \"json\",\r\n            \"find\": {\r\n                \"startPort\": \"{{server.build.default.port}}\"\r\n            }\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{server.build.default.ip}}\",\r\n            \"identity.listeners[0].port\": \"{{env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"{{server.build.default.ip}}\",\r\n            \"httpListeners[0].port\": \"{{env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{server.build.default.ip}}\",\r\n            \"connectHostAddress\": \"{{server.build.default.ip}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\"\r\n        },\r\n        \"local\/tasks\/Proxy.json\": {\r\n            \"parser\": \"json\",\r\n            \"find\": {\r\n                \"startPort\": \"{{server.build.default.port}}\"\r\n            }\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"For help, use the\",\r\n    \"userInteraction\": [\r\n        \"Do you agree to the Mojang EULA\"\r\n    ]\r\n}",
         "logs": "{}",
         "stop": "^C"
@@ -52,7 +52,7 @@
             "field_type": "text"
         },
         {
-            "name": "Cloudnet port",
+            "name": "Cloudnet Port",
             "description": "On which host and port should CloudNet run on.",
             "env_variable": "CLOUDNET_PORT",
             "default_value": "1410",
@@ -62,7 +62,7 @@
             "field_type": "text"
         },
         {
-            "name": "CloudNet's WebServer",
+            "name": "CloudNet's WebServer Port",
             "description": "On which host and port should CloudNet's WebServer run on",
             "env_variable": "CLOUDNET_WEBSERVER",
             "default_value": "2812",
