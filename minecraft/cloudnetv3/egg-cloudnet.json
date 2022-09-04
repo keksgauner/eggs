@@ -4,21 +4,22 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-09-03T23:40:46+02:00",
+    "exported_at": "2022-09-04T02:55:59+02:00",
     "name": "Cloudnet",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
     "features": null,
     "docker_images": {
-        "ghcr.io\/pterodactyl\/yolks:java_8": "ghcr.io\/pterodactyl\/yolks:java_8",
-        "ghcr.io\/pterodactyl\/yolks:java_11": "ghcr.io\/pterodactyl\/yolks:java_11",
+        "ghcr.io\/pterodactyl\/yolks:java_18": "ghcr.io\/pterodactyl\/yolks:java_18",
+        "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17",
         "ghcr.io\/pterodactyl\/yolks:java_16": "ghcr.io\/pterodactyl\/yolks:java_16",
-        "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17"
+        "ghcr.io\/pterodactyl\/yolks:java_11": "ghcr.io\/pterodactyl\/yolks:java_11",
+        "ghcr.io\/pterodactyl\/yolks:java_8": "ghcr.io\/pterodactyl\/yolks:java_8"
     },
     "file_denylist": [],
     "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:-UseAdaptiveSizePolicy -XX:CompileThreshold=100 -Dfile.encoding=UTF-8 -Xms456M -Xmx456M -jar {{SERVER_JARFILE}}",
     "config": {
-        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{server.build.default.ip}}\",\r\n            \"identity.listeners[0].port\": \"{{env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"{{server.build.default.ip}}\",\r\n            \"httpListeners[0].port\": \"{{env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{server.build.default.ip}}\",\r\n            \"connectHostAddress\": \"{{server.build.default.ip}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\"\r\n        },\r\n        \"local\/tasks\/Proxy.json\": {\r\n            \"parser\": \"json\",\r\n            \"find\": {\r\n                \"startPort\": \"{{server.build.default.port}}\"\r\n            }\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{env.BUG}}\",\r\n            \"identity.listeners[0].port\": \"{{server.build.env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"0.0.0.0\",\r\n            \"httpListeners[0].port\": \"{{server.build.env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{env.BUG}}\",\r\n            \"connectHostAddress\": \"{{env.BUG}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\"\r\n        }\r\n    },\r\n    \"local\/tasks\/Proxy.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"startPort\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"For help, use the\",\r\n    \"userInteraction\": [\r\n        \"Do you agree to the Mojang EULA\"\r\n    ]\r\n}",
         "logs": "{}",
         "stop": "^C"
@@ -69,6 +70,16 @@
             "user_viewable": true,
             "user_editable": false,
             "rules": "required|alpha_num|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Docker ip",
+            "description": "There is a bug. I cannot use {{config.docker.interface}} this give me 172.18.0.1, but it should 172.18.0.12",
+            "env_variable": "BUG",
+            "default_value": "172.18.0.12",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:20",
             "field_type": "text"
         }
     ]
