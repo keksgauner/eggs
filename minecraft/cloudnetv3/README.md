@@ -9,6 +9,12 @@ CloudNet is an alternative application that can dynamically and easy deploy Mine
 ## Minimum requirements
 Look to [cloudnetservice.eu](https://cloudnetservice.eu/docs/3.4/setup/requirements)
 
+## How to use
+1. Select your Version what you want
+2. You have to say yes twice (If you ask to)
+3. You need to change the port in the local/tasks/Proxy.yml from 25565 to your own port manual
+
+
 ## Server Ports
 The minecraft server requires a single port for access (default 25565) but plugins may require extra ports to enabled for the server.
 
