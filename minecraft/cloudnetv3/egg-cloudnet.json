@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-09-04T05:25:46+02:00",
+    "exported_at": "2022-09-04T05:30:14+02:00",
     "name": "Cloudnet",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
@@ -19,7 +19,7 @@
     "file_denylist": [],
     "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:-UseAdaptiveSizePolicy -XX:CompileThreshold=100 -Dfile.encoding=UTF-8 -Xms456M -Xmx456M -jar {{SERVER_JARFILE}}",
     "config": {
-        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{env.HOST_ADDRESS}}\",\r\n            \"identity.listeners[0].port\": \"{{server.build.env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"0.0.0.0\",\r\n            \"httpListeners[0].port\": \"{{server.build.env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{env.HOST_ADDRESS}}\",\r\n            \"connectHostAddress\": \"0.0.0.0\",\r\n            \"maxMemory\": \"{{server.build.memory}}\"\r\n        }\r\n\t},\r\n    \"local\/tasks\/Proxy.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"startPort\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{env.HOST_ADDRESS}}\",\r\n            \"identity.listeners[0].port\": \"{{server.build.env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"{{env.HOST_ADDRESS}}\",\r\n            \"httpListeners[0].port\": \"{{server.build.env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{env.HOST_ADDRESS}}\",\r\n            \"connectHostAddress\": \"{{env.HOST_ADDRESS}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\"\r\n        }\r\n\t},\r\n    \"local\/tasks\/Proxy.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"startPort\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"For help, use the\",\r\n    \"userInteraction\": [\r\n        \"Do you agree to the Mojang EULA (https:\/\/account.mojang.com\/documents\/minecraft_eula)\"\r\n    ]\r\n}",
         "logs": "{}",
         "stop": "^C"
