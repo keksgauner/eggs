@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-09-09T05:25:35+02:00",
+    "exported_at": "2022-09-09T17:51:54+02:00",
     "name": "Cloudnet",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
@@ -73,13 +73,13 @@
             "field_type": "text"
         },
         {
-            "name": "DOCKER IP",
+            "name": "Internal Docker IP",
             "description": "Internal Docker IP",
             "env_variable": "DOCKER_IP",
             "default_value": "172.18.0.1",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|max:60",
+            "rules": "required|ipv4",
             "field_type": "text"
         }
     ]
