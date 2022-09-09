@@ -15,6 +15,21 @@ Look to [cloudnetservice.eu](https://cloudnetservice.eu/docs/3.4/setup/requireme
 3. You need to change the port in the local/tasks/Proxy.yml from 25565 to your own port manual
 4. You need to change the variable Internal Docker IP. (You can see it when you delete config.yml thats why I don't recommentd this)
 
+## Docker IP
+- You can see it when you delete config.yml thats why I don't recommentd this
+- You can see it with Portainer
+![image](https://cloud.rakutt.eu/s/SgLrNQCmpLNsddi/preview)
+- You can see it with commands
+```
+$ docker ps --format \
+"table {{.ID}}\t{{.Status}}\t{{.Names}}"
+```
+```
+$ docker inspect -f \
+'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' \
+75000c343eb7
+```
+
 
 ## Server Ports
 The minecraft server requires a single port for access (default 25565) but plugins may require extra ports to enabled for the server.
