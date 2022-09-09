@@ -11,8 +11,9 @@ Look to [cloudnetservice.eu](https://cloudnetservice.eu/docs/3.4/setup/requireme
 
 ## How to use
 1. Select your Version what you want
-2. You have to say yes twice (If you ask to)
+2. You have to say yes twice (If you ask to, because cloudnet wrote already yes)
 3. You need to change the port in the local/tasks/Proxy.yml from 25565 to your own port manual
+4. You need to change the variable Internal Docker IP. (You can see it when you delete config.yml thats why I don't recommentd this)
 
 
 ## Server Ports
