@@ -12,6 +12,11 @@ Look to [cloudnetservice.eu](https://cloudnetservice.eu/docs/3.4/setup/requireme
 ## Egg Nodes
 There are some Errors!
 
+### How to stop
+1. Klick on stop
+2. Write in the console stop
+
+
 ### How to use
 1. Select your Version what you want
 2. You have to say yes twice (If you ask to, because cloudnet wrote already yes)
