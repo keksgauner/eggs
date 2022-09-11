@@ -28,15 +28,11 @@ Look to [limit-number-of-processes-started-inside-docker-container](https://stac
 - You can see it when you delete config.yml thats why I don't recommentd this
 - You can see it with Portainer
 ![image](https://cloud.rakutt.eu/s/SgLrNQCmpLNsddi/preview)
-- You can see it with commands
-```
-$ docker ps --format \
-"table {{.ID}}\t{{.Status}}\t{{.Names}}"
-```
+- You can see it with commands in the console
 ```
 $ docker inspect -f \
 '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' \
-75000c343eb7
+16e11b0d-0969-4b1c-889c-56c8b9b01252
 ```
 Look to [how-to-get-a-docker-container-ip-address](https://www.freecodecamp.org/news/how-to-get-a-docker-container-ip-address-explained-with-examples)
 
