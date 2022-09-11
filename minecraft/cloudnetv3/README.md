@@ -27,7 +27,7 @@ There are some Errors!
 - If you get by starting a server somethink like 
 `java.lang.OutOfMemoryError: unable to create native thread: possibly out of memory or process/resource limits reached`
 The reason is a docker contianer have a limit of processes. This does not mean there is out of memory
-Look to [limit-number-of-processes-started-inside-docker-container](https://stackoverflow.com/questions/28237906/limit-number-of-processes-started-inside-docker-container)
+Look to [limit-number-of-processes-started-inside-docker-container](https://stackoverflow.com/questions/28237906/limit-number-of-processes-started-inside-docker-container) or [setting-ulimits-for-docker-process](https://tostr.pl/blog/setting-ulimits-for-docker-process-2/)
 
 ### Docker IP
 - You can see it when you delete config.yml thats why I don't recommentd this
