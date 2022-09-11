@@ -9,13 +9,22 @@ CloudNet is an alternative application that can dynamically and easy deploy Mine
 ## Minimum requirements
 Look to [cloudnetservice.eu](https://cloudnetservice.eu/docs/3.4/setup/requirements)
 
-## How to use
+## Egg Nodes
+There are some Errors!
+
+### How to use
 1. Select your Version what you want
 2. You have to say yes twice (If you ask to, because cloudnet wrote already yes)
 3. You need to change the port in the local/tasks/Proxy.yml from 25565 to your own port manual
 4. You need to change the variable Internal Docker IP. (You can see it when you delete config.yml thats why I don't recommentd this)
 
-## Docker IP
+### Errors what I got:
+- If you get by starting a server somethink like 
+`java.lang.OutOfMemoryError: unable to create native thread: possibly out of memory or process/resource limits reached`
+The reason is a docker contianer have a limit of processes. This does not mean there is out of memory
+Look to [limit-number-of-processes-started-inside-docker-container](https://stackoverflow.com/questions/28237906/limit-number-of-processes-started-inside-docker-container)
+
+### Docker IP
 - You can see it when you delete config.yml thats why I don't recommentd this
 - You can see it with Portainer
 ![image](https://cloud.rakutt.eu/s/SgLrNQCmpLNsddi/preview)
@@ -29,7 +38,7 @@ $ docker inspect -f \
 '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' \
 75000c343eb7
 ```
-
+Look to [how-to-get-a-docker-container-ip-address](https://www.freecodecamp.org/news/how-to-get-a-docker-container-ip-address-explained-with-examples)
 
 ## Server Ports
 The minecraft server requires a single port for access (default 25565) but plugins may require extra ports to enabled for the server.
