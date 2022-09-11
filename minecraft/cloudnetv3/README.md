@@ -1,4 +1,11 @@
 # WARNING: I do not recommend using this egg.
+Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes)
+```
+Why should a container have only one process?
+
+It’s sometimes recommended in books and documentation to stick to the principle of one container, one process. Many container images on Docker Hub usually just run one process.
+```
+
 ### This is a snapshot or developent build. It may have issues.
 ### It will be updating. if it is still needed. It is not a finished build yet.
 I try my best to do what they want [here](https://github.com/parkervcp/eggs/issues/1245)
