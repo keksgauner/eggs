@@ -18,15 +18,6 @@ It’s sometimes recommended in books and documentation to stick to the principl
 7. Only change something if you know what you are doing
 8. I assume no liability for damages
 
-## Wings Settings
-Increase `container_pid_limit` more than 512 like 3512 (Your max can you see with `sysctl -a | grep kernel.pid_max `). Than restart your service `service wings restart`
-- You must know 512 pids are nealy 4 processes
-
-Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/configuration.html)
-
-### How to stop
-1. Klick on stop
-2. Write in the console stop
 
 ### How to install
 1. Select your Version what you want
@@ -35,13 +26,14 @@ Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/confi
 4. You need to change the variable Internal Docker IP. Look to Docker IP
 5. If you want more than 4 processes (3 Server) look to Wings Settings
 
-### Errors what I got:
-- If you get by starting a server somethink like 
-`java.lang.OutOfMemoryError: unable to create native thread: possibly out of memory or process/resource limits reached`
-![image](https://cloud.rakutt.eu/s/fBJSKkeYncfGtci/preview)
-The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory
-Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
+### How to stop
+1. Klick on stop
+2. Write in the console stop
 
+## Wings Settings
+Increase `container_pid_limit` more than 512 like 3512 (Your max can you see with `sysctl -a | grep kernel.pid_max `). Than restart your service `service wings restart`
+- You must know 512 pids are nealy 4 processes
+Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/configuration.html)
 
 ### Docker IP
 - You can see it when you delete config.yml
@@ -54,6 +46,13 @@ $ docker inspect -f \
 16e11b0d-0969-4b1c-889c-56c8b9b01252
 ```
 Look to [how-to-get-a-docker-container-ip-address](https://www.freecodecamp.org/news/how-to-get-a-docker-container-ip-address-explained-with-examples)
+
+### Errors what I got:
+- If you get by starting a server somethink like 
+`java.lang.OutOfMemoryError: unable to create native thread: possibly out of memory or process/resource limits reached`
+![image](https://cloud.rakutt.eu/s/fBJSKkeYncfGtci/preview)
+The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory
+Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
 # CloudNet3 server
 CloudNet is an alternative application that can dynamically and easy deploy Minecraft oriented software.
