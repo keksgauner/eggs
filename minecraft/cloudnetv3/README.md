@@ -15,6 +15,8 @@ It’s sometimes recommended in books and documentation to stick to the principl
 4. And I definitely don't recommend using it.
 5. This is a test if it works. Unfortunately to use it has too many bugs
 6. It is public so that eventually someone else can improve it
+7. Only change something if you know what you are doing
+8. I assume no liability for damages
 
 ## Wings Settings
 Increase `container_pid_limit` more than 512 like 3512 (Your max can you see with `sysctl -a | grep kernel.pid_max `). Than service wings restart
