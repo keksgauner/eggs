@@ -17,7 +17,7 @@ It’s sometimes recommended in books and documentation to stick to the principl
 6. It is public so that eventually someone else can improve it
 
 ## Wings Settings
-Increase `container_pid_limit` more than 512 
+Increase `container_pid_limit` more than 512 like 3512 (Your max can you see with `sysctl -a | grep kernel.pid_max `). Than service wings restart
 Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/configuration.html)
 
 ### How to stop
