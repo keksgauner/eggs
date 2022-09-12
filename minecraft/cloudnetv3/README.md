@@ -32,7 +32,8 @@ Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/confi
 1. Select your Version what you want
 2. You have to say yes twice (If you ask to, because cloudnet wrote already yes)
 3. You need to change the port in the local/tasks/Proxy.yml from 25565 to your own port manual
-4. You need to change the variable Internal Docker IP. (You can see it when you delete config.yml thats why I don't recommentd this)
+4. You need to change the variable Internal Docker IP. Look to Docker IP
+5. If you want more than 4 processes (3 Server) look to Wings Settings
 
 ### Errors what I got:
 - If you get by starting a server somethink like 
