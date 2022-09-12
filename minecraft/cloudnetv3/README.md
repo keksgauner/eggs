@@ -55,7 +55,7 @@ Look to [how-to-get-a-docker-container-ip-address](https://www.freecodecamp.org/
 The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
-- If was successfully connected to the channel missing check your Docker ip. It should look like this. (Loglevel FATAL)
+- If successfully connected to the channel missing than check your Docker ip. It should look like this. (Log level FATAL)
 ```
 [12.09 15:26:47.698] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is being prepared...
 [12.09 15:26:47.733] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is started...
