@@ -35,7 +35,7 @@ Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/confi
 `java.lang.OutOfMemoryError: unable to create native thread: possibly out of memory or process/resource limits reached`
 ![image](https://cloud.rakutt.eu/s/fBJSKkeYncfGtci/preview)
 The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory
-Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings
+Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
 
 ### Docker IP
