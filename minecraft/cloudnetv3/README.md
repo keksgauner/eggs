@@ -56,12 +56,11 @@ The reason is a docker contianer have a limit of processes or something. This do
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
 - If was successfully connected to the channel missing check your Docker ip. It should look like this. (Loglevel FATAL)
-`
+```
 [12.09 15:26:47.698] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is being prepared...
 [12.09 15:26:47.733] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is started...
 [12.09 15:26:48.099] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] was successfully connected to the channel [serverAddress=16e11b0d-0969-4b1c-889c-56c8b9b01252:55501 clientAddress=172.18.0.19:44280]
-
-`
+```
 
 # CloudNet3 server
 CloudNet is an alternative application that can dynamically and easy deploy Minecraft oriented software.
