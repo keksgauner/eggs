@@ -31,9 +31,9 @@ It’s sometimes recommended in books and documentation to stick to the principl
 2. Write in the console stop
 
 ## Wings Settings
-Increase `container_pid_limit` more than 512 like 3512 (Your max can you see with `sysctl -a | grep kernel.pid_max `). Than restart your service `service wings restart`
+Increase `container_pid_limit` more than 512 like 3512 (Your max can you see with `sysctl -a | grep kernel.pid_max `). Than restart your service `service wings restart` Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/configuration.html)
 - You must know 512 pids are nealy 4 processes
-Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/configuration.html)
+
 
 ### Docker IP
 - (Recommend) You can see the docker ip when you start the server Your docker ip is: {Temp ip}
