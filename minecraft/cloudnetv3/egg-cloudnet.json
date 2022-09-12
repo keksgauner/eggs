@@ -4,29 +4,29 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2022-09-09T17:51:54+02:00",
+    "exported_at": "2022-09-12T16:52:48+02:00",
     "name": "Cloudnet",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
     "features": null,
     "docker_images": {
-        "ghcr.io\/pterodactyl\/yolks:java_18": "ghcr.io\/pterodactyl\/yolks:java_18",
-        "ghcr.io\/pterodactyl\/yolks:java_17": "ghcr.io\/pterodactyl\/yolks:java_17",
-        "ghcr.io\/pterodactyl\/yolks:java_16": "ghcr.io\/pterodactyl\/yolks:java_16",
-        "ghcr.io\/pterodactyl\/yolks:java_11": "ghcr.io\/pterodactyl\/yolks:java_11",
-        "ghcr.io\/pterodactyl\/yolks:java_8": "ghcr.io\/pterodactyl\/yolks:java_8"
+        "Java 18": "ghcr.io\/pterodactyl\/yolks:java_18",
+        "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17",
+        "Java 16": "ghcr.io\/pterodactyl\/yolks:java_16",
+        "Java 11": "ghcr.io\/pterodactyl\/yolks:java_11",
+        "Java 8": "ghcr.io\/pterodactyl\/yolks:java_8"
     },
     "file_denylist": [],
-    "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:-UseAdaptiveSizePolicy -XX:CompileThreshold=100 -Dfile.encoding=UTF-8 -Xms456M -Xmx456M -jar {{SERVER_JARFILE}}",
+    "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:-UseAdaptiveSizePolicy -XX:CompileThreshold=100 -Dfile.encoding=UTF-8 -Xmx456M -Xms256m -jar {{SERVER_JARFILE}}",
     "config": {
-        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"identity.listeners[0].port\": \"{{server.build.env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"0.0.0.0\",\r\n            \"httpListeners[0].port\": \"{{server.build.env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"connectHostAddress\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\",\r\n            \"ipWhitelist.0\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"ipWhitelist.1\": \"{{server.build.env.DOCKER_IP}}\",\r\n            \"ipWhitelist.2\": \"0:0:0:0:0:0:0:1%lo\",\r\n            \"ipWhitelist.3\": \"127.0.1.1\",\r\n            \"ipWhitelist.4\": \"127.0.0.1\",\r\n            \"ipWhitelist.5\": \"{{config.docker.interface}}\"\r\n        }\r\n    }\r\n}",
+        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"identity.listeners[0].port\": \"{{server.build.env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"0.0.0.0\",\r\n            \"httpListeners[0].port\": \"{{server.build.env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"connectHostAddress\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\",\r\n            \"ipWhitelist.0\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"ipWhitelist.1\": \"{{server.build.env.DOCKER_IP}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"For help, use the\",\r\n    \"userInteraction\": [\r\n        \"Do you agree to the Mojang EULA (https:\/\/account.mojang.com\/documents\/minecraft_eula)\"\r\n    ]\r\n}",
         "logs": "{}",
-        "stop": "^C"
+        "stop": "stop"
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# Cloudnet Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\ncd \/mnt\/server\r\n\r\nDOWNLOAD_LINK=$(echo https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip)\r\necho -e \"Running curl -sSL ${DOWNLOAD_LINK} -o CloudNet.zip\"\r\n\r\ncurl -sSL https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip -o CloudNet.zip\r\nunzip -o CloudNet.zip\r\n\r\nrm -rf CloudNet.zip\r\n\r\necho \"install complete\"",
+            "script": "#!\/bin\/ash\r\n# Cloudnet Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\ncd \/mnt\/server\r\n \t\t\t\r\nDOWNLOAD_LINK=$(echo https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip)\r\necho -e \"Running curl -sSL ${DOWNLOAD_LINK} -o CloudNet.zip\"\r\n\r\ncurl -sSL https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip -o CloudNet.zip\r\nunzip -o CloudNet.zip\r\n\r\nrm -rf CloudNet.zip\r\n\r\necho \"install complete\"",
             "container": "ghcr.io\/pterodactyl\/installers:alpine",
             "entrypoint": "ash"
         }
