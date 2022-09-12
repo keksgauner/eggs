@@ -36,6 +36,7 @@ Increase `container_pid_limit` more than 512 like 3512 (Your max can you see wit
 Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/configuration.html)
 
 ### Docker IP
+- (Recommend) You can see the docker ip when you start the server Your docker ip is: {Temp ip}
 - You can see it when you delete config.yml
 - You can see it with Portainer
 ![image](https://cloud.rakutt.eu/s/SgLrNQCmpLNsddi/preview)
