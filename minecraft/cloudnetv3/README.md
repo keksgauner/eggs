@@ -55,7 +55,28 @@ Look to [how-to-get-a-docker-container-ip-address](https://www.freecodecamp.org/
 The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
-- If successfully connected to the channel missing than check your Docker ip. It should look like this. (Log level FATAL)
+- Not known NullPointerException
+`
+[18.09 20:35:07.878] ERROR: java.lang.NullPointerException: Cannot invoke "java.util.jar.Manifest.getMainAttributes()" because the return value of "java.util.jar.JarInputStream.getManifest()" is null
+[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.JVMCloudService.startProcess(JVMCloudService.java:187)
+[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.DefaultCloudService.invokeStart(DefaultCloudService.java:275)
+[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.DefaultCloudService.startNow(DefaultCloudService.java:259)
+[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.DefaultCloudService.start(DefaultCloudService.java:236)
+[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.provider.service.LocalNodeSpecificCloudServiceProvider.setCloudServiceLifeCycle(LocalNodeSpecificCloudServiceProvider.java:143)
+[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.driver.provider.service.SpecificCloudServiceProvider.start(SpecificCloudServiceProvider.java:103)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.commands.CommandService.lambda$new$15(CommandService.java:187)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.commands.CommandService.forEachService(CommandService.java:294)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.commands.CommandService.lambda$new$16(CommandService.java:186)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.sub.SubCommandBuilder$1.execute(SubCommandBuilder.java:64)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.sub.SubCommandHandler.executeCommand(SubCommandHandler.java:135)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.sub.SubCommandHandler.execute(SubCommandHandler.java:112)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.DefaultCommandMap.dispatchCommand0(DefaultCommandMap.java:227)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.DefaultCommandMap.dispatchCommand(DefaultCommandMap.java:204)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.CloudNet.lambda$runConsole$19(CloudNet.java:1049)
+[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.console.ConsoleReadThread.run(ConsoleReadThread.java:48)
+`
+
+- If successfully connected to the channel missing than check your Docker ip. It should look like this. (Used log level FATAL)
 ```
 [12.09 15:26:47.698] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is being prepared...
 [12.09 15:26:47.733] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is started...
