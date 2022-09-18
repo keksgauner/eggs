@@ -56,7 +56,7 @@ The reason is a docker contianer have a limit of processes or something. This do
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
 - Not known NullPointerException
-`
+```
 [18.09 20:35:07.878] ERROR: java.lang.NullPointerException: Cannot invoke "java.util.jar.Manifest.getMainAttributes()" because the return value of "java.util.jar.JarInputStream.getManifest()" is null
 [18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.JVMCloudService.startProcess(JVMCloudService.java:187)
 [18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.DefaultCloudService.invokeStart(DefaultCloudService.java:275)
@@ -74,7 +74,7 @@ Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/
 [18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.DefaultCommandMap.dispatchCommand(DefaultCommandMap.java:204)
 [18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.CloudNet.lambda$runConsole$19(CloudNet.java:1049)
 [18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.console.ConsoleReadThread.run(ConsoleReadThread.java:48)
-`
+```
 
 - If successfully connected to the channel missing than check your Docker ip. It should look like this. (Used log level FATAL)
 ```
