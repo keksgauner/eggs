@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-06-05T23:23:34+02:00",
+    "exported_at": "2023-06-05T23:59:54+02:00",
     "name": "Cloudnet",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
@@ -17,10 +17,10 @@
     "file_denylist": [],
     "startup": "java -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:+UseCompressedOops -XX:-UseAdaptiveSizePolicy -XX:CompileThreshold=100 -Dfile.encoding=UTF-8 -Xmx456M -Xms256m -jar {{SERVER_JARFILE}}",
     "config": {
-        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"identity.listeners[0].host\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"identity.listeners[0].port\": \"{{server.build.env.CLOUDNET_PORT}}\",\r\n            \"httpListeners[0].host\": \"0.0.0.0\",\r\n            \"httpListeners[0].port\": \"{{server.build.env.CLOUDNET_WEBSERVER}}\",\r\n            \"hostAddress\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"connectHostAddress\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"maxMemory\": \"{{server.build.memory}}\",\r\n            \"ipWhitelist.0\": \"{{server.build.env.P_SERVER_UUID}}\",\r\n            \"ipWhitelist.1\": \"{{server.build.env.DOCKER_IP}}\"\r\n        }\r\n    }\r\n}",
+        "files": "{}",
         "startup": "{\r\n    \"done\": \"For help, use the\",\r\n    \"userInteraction\": [\r\n        \"Do you agree to the Mojang EULA (https:\/\/account.mojang.com\/documents\/minecraft_eula)\"\r\n    ]\r\n}",
         "logs": "{}",
-        "stop": "^C"
+        "stop": "stop"
     },
     "scripts": {
         "installation": {
@@ -68,16 +68,6 @@
             "user_viewable": true,
             "user_editable": false,
             "rules": "required|alpha_num|max:20",
-            "field_type": "text"
-        },
-        {
-            "name": "Internal Docker IP",
-            "description": "Internal Docker IP",
-            "env_variable": "DOCKER_IP",
-            "default_value": "172.18.0.1",
-            "user_viewable": true,
-            "user_editable": false,
-            "rules": "required|ipv4",
             "field_type": "text"
         }
     ]
