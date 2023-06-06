@@ -5,7 +5,6 @@ It is only for those people who are trying hard to create a pterodactyl cloudnet
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes)
 ```
 Why should a container have only one process?
-
 It’s sometimes recommended in books and documentation to stick to the principle of one container, one process. Many container images on Docker Hub usually just run one process.
 ```
 ## Info (Read carefully before using his)
@@ -18,41 +17,29 @@ It’s sometimes recommended in books and documentation to stick to the principl
 7. Only change something if you know what you are doing
 8. I assume no liability for damages
 
+### Info
+i use a docker container i built myself that is laid out on cloudnet with pterodactyl\
+See [here](https://hub.docker.com/r/keksgauner/cloudnet)
 
 ### How to install
 1. Select your Version what you want
 2. You have to say yes twice (If you ask to, because cloudnet wrote already yes)
 3. You need to change the port in the local/tasks/Proxy.yml from 25565 to your own port manual
-4. You need to change the variable Internal Docker IP. Look to Docker IP
-5. If you want more than 4 processes (3 Server) look to Wings Settings
+4. If you want more than 4 processes (3 Server) look to Wings Settings
 
 ### How to stop
 1. Klick on stop
-2. Write in the console stop
+2. Write in the console stop (CloudNet need it twice)
 
 ## Wings Settings
 Increase `container_pid_limit` more than 512 like 3512 (Your max can you see with `sysctl -a | grep kernel.pid_max `). Than restart your service `service wings restart` Look to [pterodactyl wings configuration](https://pterodactyl.io/wings/1.0/configuration.html)
-- You must know 512 pids are nealy 4 processes
-
-
-### Docker IP
-- (Recommend) You can see the docker ip when you start the server Your docker ip is: {Temp ip}
-- You can see it when you delete config.yml
-- You can see it with Portainer
-![image](https://cloud.rakutt.eu/s/SgLrNQCmpLNsddi/preview)
-- You can see it with commands in the console
-```
-$ docker inspect -f \
-'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' \
-16e11b0d-0969-4b1c-889c-56c8b9b01252
-```
-Look to [how-to-get-a-docker-container-ip-address](https://www.freecodecamp.org/news/how-to-get-a-docker-container-ip-address-explained-with-examples)
+- You must know 512 pids are nealy 4 processe
 
 ### Errors what I got:
 - If you get by starting a server somethink like 
 `java.lang.OutOfMemoryError: unable to create native thread: possibly out of memory or process/resource limits reached`
 ![image](https://cloud.rakutt.eu/s/fBJSKkeYncfGtci/preview)
-The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory
+The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory\
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
 - Not known NullPointerException
