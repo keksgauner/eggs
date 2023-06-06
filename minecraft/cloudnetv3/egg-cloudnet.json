@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-06-06T01:03:08+02:00",
+    "exported_at": "2023-06-06T15:38:34+02:00",
     "name": "Cloudnet",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
@@ -24,7 +24,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# Cloudnet Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\ncd \/mnt\/server\r\n\r\n# Fetch download link\r\nDOWNLOAD_LINK=\"https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/download\/${CLOUDNET_VERSION}\/CloudNet.zip\"\r\n\r\nif curl --output \/dev\/null --silent --head --fail \"echo https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip\"; then\r\n    DOWNLOAD_LINK=\"https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip\"\r\nfi\r\n\r\necho -e \"Running curl -sSL ${DOWNLOAD_LINK} -o CloudNet.zip\"\r\n\r\n# donwload\r\ncurl -sSL \"${DOWNLOAD_LINK}\" -o CloudNet.zip\r\n#unzip\r\nunzip -o CloudNet.zip\r\n\r\n# cleanup\r\nrm -rf CloudNet.zip\r\n\r\necho \"install complete\"",
+            "script": "#!\/bin\/ash\r\n# Cloudnet Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Remove spaces from the version number to avoid issues with curl\r\nCLOUDNET_VERSION=\"$(echo \"$CLOUDNET_VERSION\" | tr -d ' ')\"\r\nCLOUDNET_TYPE=\"$(echo \"$CLOUDNET_TYPE\" | tr -d ' ')\"\r\n\r\n# Fetch download link\r\n\r\nif [ ! -z \"${CLOUDNET_TYPE}\" ]; then\r\n    DOWNLOAD_LINK=\"https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/download\/${CLOUDNET_VERSION}\/CloudNet.zip\"\r\n        \r\n    if [ \"${CLOUDNET_TYPE}\" == \"V3\" ]; then\r\n        DOWNLOAD_LINK=\"https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/${CLOUDNET_VERSION}\/download\/CloudNet.zip\"\r\n    fi\r\n    if [ \"${CLOUDNET_TYPE}\" == \"V4\" ]; then\r\n        DOWNLOAD_LINK=\"https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/download\/${CLOUDNET_VERSION}\/CloudNet.zip\"\r\n    fi\r\nelse\r\n  echo -e \"no type provided. Exiting now\"\r\n  exit 3\r\nfi\r\n\r\n# Downloading zip\r\necho -e \"Downloading CloudNet version ${CLOUDNET_VERSION}\"\r\necho -e \"Download link is ${DOWNLOAD_LINK}\"\r\n\r\nif [ ! -z \"${DOWNLOAD_LINK}\" ]; then\r\n  if curl --output \/dev\/null --silent --head --fail ${DOWNLOAD_LINK}; then\r\n    echo -e \"zip download link is valid.\"\r\n  else\r\n    echo -e \"link is invalid. Exiting now\"\r\n    exit 2\r\n  fi\r\nelse\r\n  echo -e \"no download link provided. Exiting now\"\r\n  exit 3\r\nfi\r\n\r\necho -e \"Download CloudNet pack.\\n\"\r\ncurl -sSL ${DOWNLOAD_LINK} -o CloudNet.zip\r\n\r\nif [ ! -e \"\/config.json\" ]; then\r\n    echo -e \"config.json not found!\\n\"\r\n    touch config.json\r\nfi\r\n    \r\necho -e \"Install CloudNet server.\\n\"\r\nunzip -o CloudNet.zip || { echo -e \"\\nInstall failed using Cloudnet version ${CLOUDNET_VERSION}.\"; exit 4; }\r\n\r\necho -e \"Deleting CloudNet.zip file.\\n\"\r\nrm -rf CloudNet.zip\r\n\r\necho -e \"Installation process is completed\"",
             "container": "ghcr.io\/pterodactyl\/installers:alpine",
             "entrypoint": "ash"
         }
@@ -56,7 +56,7 @@
             "env_variable": "CLOUDNET_PORT",
             "default_value": "1410",
             "user_viewable": true,
-            "user_editable": false,
+            "user_editable": true,
             "rules": "required|alpha_num|max:20",
             "field_type": "text"
         },
@@ -66,18 +66,18 @@
             "env_variable": "CLOUDNET_WEBSERVER",
             "default_value": "2812",
             "user_viewable": true,
-            "user_editable": false,
+            "user_editable": true,
             "rules": "required|alpha_num|max:20",
             "field_type": "text"
         },
         {
             "name": "Cloudnet Type",
-            "description": "The cloudnet type V3 or V4",
+            "description": "The cloudnet type of the Version\r\n\r\nValid types are \"V3\", \"V4\" and \"latest\".",
             "env_variable": "CLOUDNET_TYPE",
-            "default_value": "V3",
+            "default_value": "latest",
             "user_viewable": true,
             "user_editable": true,
-            "rules": "required|string|between:1,2",
+            "rules": "required|string|in:V3,V4,latest",
             "field_type": "text"
         }
     ]
