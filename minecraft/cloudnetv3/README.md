@@ -18,8 +18,8 @@ It’s sometimes recommended in books and documentation to stick to the principl
 8. I assume no liability for damages
 
 ### Info
-i use a docker container i built myself that is laid out on cloudnet with pterodactyl\
-See [here](https://hub.docker.com/r/keksgauner/cloudnet)
+I use a docker container i built myself that is laid out on cloudnet with pterodactyl\
+See [hub.docker.com/keksgauner/cloudnet](https://hub.docker.com/r/keksgauner/cloudnet) and [keksgauner/docker-stuff](https://github.com/keksgauner/docker-stuff/blob/main/pterodactyl/images/cloudnet)
 
 ### How to install
 1. Select your Version what you want
