@@ -8,7 +8,7 @@ Why should a container have only one process?
 It’s sometimes recommended in books and documentation to stick to the principle of one container, one process. Many container images on Docker Hub usually just run one process.
 ```
 ## Info (Read carefully before using his)
-1. This is a snapshot or developent build. It have issues.
+1. This is a test. It have issues.
 2. It is not a finished build yet. And never will be.
 3. I try my best to do what they want [here](https://github.com/parkervcp/eggs/issues/1245)
 4. And I definitely don't recommend using it.
