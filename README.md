@@ -1,7 +1,7 @@
 # Keksgauner Pterodactyl eggs repo
 My custom pterodactyl.io eggs you should never seen before
 
-Look over to [Parkers Pterodactyl eggs repo](https://github.com/parkervcp/eggs)
+Additional Pterodactyl eggs can be found at [Parkers Pterodactyl](https://github.com/parkervcp/eggs)
 
 ## How to import an egg
 
