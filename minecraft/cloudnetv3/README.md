@@ -38,7 +38,6 @@ Increase `container_pid_limit` more than 512 like 3512 (Your max can you see wit
 ### Errors what I got:
 - If you get by starting a server somethink like 
 `java.lang.OutOfMemoryError: unable to create native thread: possibly out of memory or process/resource limits reached`
-![image](https://cloud.rakutt.eu/s/fBJSKkeYncfGtci/preview)
 The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory\
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
