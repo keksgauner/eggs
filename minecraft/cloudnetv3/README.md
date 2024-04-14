@@ -1,12 +1,5 @@
 <h1 color="red">WARNING: I do not recommend using this egg.
-<br>
-It is only for those people who are trying hard to create a pterodactyl cloudnet server!</h1>
 
-Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes)
-```
-Why should a container have only one process?
-It’s sometimes recommended in books and documentation to stick to the principle of one container, one process. Many container images on Docker Hub usually just run one process.
-```
 ## Info (Read carefully before using his)
 1. This is a test. It have issues.
 2. It is not a finished build yet. And never will be.
