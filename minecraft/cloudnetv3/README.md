@@ -38,8 +38,9 @@ Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/
 
 - StackOverflowError \
 Current error of the autocompleation of jline3. \
-Try `docker exec -it <uuid> /bin/bash` \
-It is because docker needs to be started interactively which can nomally be done with the start parameters `docker run -it`
+Try `docker attach <uuid>` in the root console \
+It is because docker needs to be started interactively which can nomally be done with the start parameters `docker run -it IMAGE /bin/bash` \
+The problem is that the autocompleation does not work like this
 ```
 [14.04 02:12:32.121] SEVERE: Exception in thread "Thread-0" 
 [14.04 02:12:32.122] SEVERE: java.lang.StackOverflowError
