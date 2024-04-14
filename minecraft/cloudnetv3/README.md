@@ -36,32 +36,25 @@ Increase `container_pid_limit` more than 512 like 3512 (Your max can you see wit
 The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory\
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
-- Not known NullPointerException
+- Not known StackOverflowError
 ```
-[18.09 20:35:07.878] ERROR: java.lang.NullPointerException: Cannot invoke "java.util.jar.Manifest.getMainAttributes()" because the return value of "java.util.jar.JarInputStream.getManifest()" is null
-[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.JVMCloudService.startProcess(JVMCloudService.java:187)
-[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.DefaultCloudService.invokeStart(DefaultCloudService.java:275)
-[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.DefaultCloudService.startNow(DefaultCloudService.java:259)
-[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.service.defaults.DefaultCloudService.start(DefaultCloudService.java:236)
-[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.provider.service.LocalNodeSpecificCloudServiceProvider.setCloudServiceLifeCycle(LocalNodeSpecificCloudServiceProvider.java:143)
-[18.09 20:35:07.878] ERROR:     at de.dytanic.cloudnet.driver.provider.service.SpecificCloudServiceProvider.start(SpecificCloudServiceProvider.java:103)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.commands.CommandService.lambda$new$15(CommandService.java:187)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.commands.CommandService.forEachService(CommandService.java:294)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.commands.CommandService.lambda$new$16(CommandService.java:186)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.sub.SubCommandBuilder$1.execute(SubCommandBuilder.java:64)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.sub.SubCommandHandler.executeCommand(SubCommandHandler.java:135)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.sub.SubCommandHandler.execute(SubCommandHandler.java:112)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.DefaultCommandMap.dispatchCommand0(DefaultCommandMap.java:227)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.command.DefaultCommandMap.dispatchCommand(DefaultCommandMap.java:204)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.CloudNet.lambda$runConsole$19(CloudNet.java:1049)
-[18.09 20:35:07.879] ERROR:     at de.dytanic.cloudnet.console.ConsoleReadThread.run(ConsoleReadThread.java:48)
+[14.04 02:12:32.121] SEVERE: Exception in thread "Thread-0" 
+[14.04 02:12:32.122] SEVERE: java.lang.StackOverflowError
+[14.04 02:12:32.125] SEVERE:    at org.jline.reader.impl.BufferImpl.toString(BufferImpl.java:343)
+[14.04 02:12:32.125] SEVERE:    at org.jline.reader.impl.LineReaderImpl.getDisplayedBufferWithPrompts(LineReaderImpl.java:4061)
+[14.04 02:12:32.125] SEVERE:    at org.jline.reader.impl.LineReaderImpl.redisplay(LineReaderImpl.java:3929)
+[14.04 02:12:32.125] SEVERE:    at org.jline.reader.impl.LineReaderImpl.doList(LineReaderImpl.java:5014)
+[14.04 02:12:32.125] SEVERE:    at org.jline.reader.impl.LineReaderImpl.clearChoices(LineReaderImpl.java:4980)
+[14.04 02:12:32.125] SEVERE:    at org.jline.reader.impl.LineReaderImpl.getDisplayedBufferWithPrompts(LineReaderImpl.java:4078)
+[14.04 02:12:32.126] SEVERE:    at org.jline.reader.impl.LineReaderImpl.redisplay(LineReaderImpl.java:3929)
+[14.04 02:12:32.126] SEVERE:    at org.jline.reader.impl.LineReaderImpl.doList(LineReaderImpl.java:5014)
 ```
 
 - If successfully connected to the channel missing than check your Docker ip. It should look like this. (Used log level FATAL)
 ```
 [12.09 15:26:47.698] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is being prepared...
 [12.09 15:26:47.733] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] is started...
-[12.09 15:26:48.099] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] was successfully connected to the channel [serverAddress=16e11b0d-0969-4b1c-889c-56c8b9b01252:55501 clientAddress=172.18.0.19:44280]
+[12.09 15:26:48.099] INFO: CloudService [uniqueId=f09e75e5-7161-4323-a68f-538f22f550c6 task=Proxy name=Proxy-1] was successfully connected to the channel [serverAddress=16e11b0d-0969-4b1c-889c-56c8b9b01252:55501 clientAddress=172.18.0.2:44280]
 ```
 
 # CloudNet3 server
