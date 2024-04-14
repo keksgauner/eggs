@@ -38,7 +38,7 @@ Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/
 
 - StackOverflowError \
 Current error of the autocompleation of jline3. \
-Try `docker exec -it <name> /bin/bash` \
+Try `docker exec -it <uuid> /bin/bash` \
 It is because docker needs to be started interactively which can nomally be done with the start parameters `docker run -it`
 ```
 [14.04 02:12:32.121] SEVERE: Exception in thread "Thread-0" 
