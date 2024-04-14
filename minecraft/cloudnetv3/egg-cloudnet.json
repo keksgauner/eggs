@@ -4,16 +4,16 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-04-14T02:09:26+02:00",
+    "exported_at": "2024-04-14T04:16:18+02:00",
     "name": "CloudnetV4",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
     "features": null,
     "docker_images": {
-        "CloudNet": "keksgauner\/cloudnet"
+        "CloudNet": "keksgauner\/cloudnet:latest"
     },
     "file_denylist": [],
-    "startup": "java -XX:+UseZGC -XX:+PerfDisableSharedMem -XX:+DisableExplicitGC -Xmx456M -Xms256m -jar {{SERVER_JARFILE}}",
+    "startup": "java -XX:+UseZGC -XX:+PerfDisableSharedMem -XX:+DisableExplicitGC -Dterminal.jline=false -Xmx456M -Xms256m -jar {{SERVER_JARFILE}}",
     "config": {
         "files": "{}",
         "startup": "{}",
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# Cloudnet Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Remove spaces from the version number to avoid issues with curl\r\nCLOUDNET_VERSION=\"$(echo \"$CLOUDNET_VERSION\" | tr -d ' ')\"\r\n\r\n# Fetch download link\r\n\r\nif [ ! -z \"${CLOUDNET_VERSION}\" ]; then\r\n    DOWNLOAD_LINK=\"https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/download\/4.0.0-RC${CLOUDNET_VERSION}\/CloudNet.zip\"\r\nelse\r\n  echo -e \"no type provided. Exiting now\"\r\n  exit 3\r\nfi\r\n\r\n# Downloading zip\r\necho -e \"Downloading CloudNet version ${CLOUDNET_VERSION}\"\r\necho -e \"Download link is ${DOWNLOAD_LINK}\"\r\n\r\nif [ ! -z \"${DOWNLOAD_LINK}\" ]; then\r\n  if curl --output \/dev\/null --silent --head --fail ${DOWNLOAD_LINK}; then\r\n    echo -e \"zip download link is valid.\"\r\n  else\r\n    echo -e \"link is invalid. Exiting now\"\r\n    exit 2\r\n  fi\r\nelse\r\n  echo -e \"no download link provided. Exiting now\"\r\n  exit 3\r\nfi\r\n\r\necho -e \"Download CloudNet pack.\\n\"\r\ncurl -sSL ${DOWNLOAD_LINK} -o CloudNet.zip\r\n\r\nif [ ! -e \"\/config.json\" ]; then\r\n    echo -e \"config.json not found!\\n\"\r\n    touch config.json\r\nfi\r\n    \r\necho -e \"Install CloudNet server.\\n\"\r\nunzip -o CloudNet.zip || { echo -e \"\\nInstall failed using Cloudnet version ${CLOUDNET_VERSION}.\"; exit 4; }\r\n\r\necho -e \"Deleting CloudNet.zip file.\\n\"\r\nrm -rf CloudNet.zip\r\n\r\necho -e \"Installation process is completed\"",
+            "script": "#!\/bin\/ash\r\n# Cloudnet Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\ncd \/mnt\/server\r\n\r\n# Remove spaces from the version number to avoid issues with curl\r\nCLOUDNET_VERSION=\"$(echo \"$CLOUDNET_VERSION\" | tr -d ' ')\"\r\n\r\n# Fetch download link\r\n\r\nif [ ! -z \"${CLOUDNET_VERSION}\" ]; then\r\n    DOWNLOAD_LINK=\"https:\/\/github.com\/CloudNetService\/CloudNet-v3\/releases\/download\/${CLOUDNET_VERSION}\/CloudNet.zip\"\r\nelse\r\n  echo -e \"version provided. Exiting now\"\r\n  exit 3\r\nfi\r\n\r\n# Downloading zip\r\necho -e \"Downloading CloudNet version ${CLOUDNET_VERSION}\"\r\necho -e \"Download link is ${DOWNLOAD_LINK}\"\r\n\r\nif [ ! -z \"${DOWNLOAD_LINK}\" ]; then\r\n  if curl --output \/dev\/null --silent --head --fail ${DOWNLOAD_LINK}; then\r\n    echo -e \"zip download link is valid.\"\r\n  else\r\n    echo -e \"link is invalid. Exiting now\"\r\n    exit 2\r\n  fi\r\nelse\r\n  echo -e \"no download link provided. Exiting now\"\r\n  exit 3\r\nfi\r\n\r\necho -e \"Download CloudNet pack.\\n\"\r\ncurl -sSL ${DOWNLOAD_LINK} -o CloudNet.zip\r\n\r\nif [ ! -e \"\/config.json\" ]; then\r\n    echo -e \"config.json not found!\\n\"\r\n    touch config.json\r\nfi\r\n    \r\necho -e \"Install CloudNet server.\\n\"\r\nunzip -o CloudNet.zip || { echo -e \"\\nInstall failed using Cloudnet version ${CLOUDNET_VERSION}.\"; exit 4; }\r\n\r\necho -e \"Deleting CloudNet.zip file.\\n\"\r\nrm -rf CloudNet.zip\r\n\r\necho -e \"Installation process is completed\"",
             "container": "ghcr.io\/pterodactyl\/installers:alpine",
             "entrypoint": "ash"
         }
