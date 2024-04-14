@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2024-04-14T04:16:18+02:00",
+    "exported_at": "2024-04-14T06:08:40+02:00",
     "name": "CloudnetV4",
     "author": "admin@kleckzz.de",
     "description": "CloudNet is the next generation of Minecraft Java and Bedrock cloud systems.\r\nYou can use it for a productive network.",
@@ -66,6 +66,16 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|alpha_num|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Overwrite Configuration",
+            "description": "If this is true, the configuration will be overwritten",
+            "env_variable": "OVERWRITE_CONFIGURATION",
+            "default_value": "1",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|boolean",
             "field_type": "text"
         }
     ]
