@@ -36,7 +36,10 @@ Increase `container_pid_limit` more than 512 like 3512 (Your max can you see wit
 The reason is a docker contianer have a limit of processes or something. This does not mean there is out of memory\
 Look to [containers-single-or-multiple-processes](https://www.tutorialworks.com/containers-single-or-multiple-processes) and [how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread](http://www.mastertheboss.com/jbossas/monitoring/how-to-solve-javalangoutofmemoryerror-unable-to-create-new-native-thread) to fix this look to Wings Settings you must increase `container_pid_limit`
 
-- Not known StackOverflowError
+- StackOverflowError \
+Current error of the autocompleation of jline3. \
+Try `docker exec -it <name> /bin/bash` \
+It is because docker needs to be started interactively which can nomally be done with the start parameters `docker run -it`
 ```
 [14.04 02:12:32.121] SEVERE: Exception in thread "Thread-0" 
 [14.04 02:12:32.122] SEVERE: java.lang.StackOverflowError
