@@ -1,4 +1,6 @@
 <h1 color="red">WARNING: I do not recommend using this egg.
+<br>
+It is only for those people who are trying hard to create a pterodactyl cloudnet server!</h1>
 
 ## Info (Read carefully before using his)
 1. This is a test. It have issues.
