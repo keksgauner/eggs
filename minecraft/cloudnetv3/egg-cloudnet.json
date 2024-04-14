@@ -13,7 +13,7 @@
         "CloudNet": "keksgauner\/cloudnet:latest"
     },
     "file_denylist": [],
-    "startup": "java -XX:+UseZGC -XX:+PerfDisableSharedMem -XX:+DisableExplicitGC -Dterminal.jline=false -Xmx456M -Xms256m -jar {{SERVER_JARFILE}}",
+    "startup": "java -XX:+UseZGC -XX:+PerfDisableSharedMem -XX:+DisableExplicitGC -Dterminal.jline=false -Dterminal.ansi=true -Xmx456M -Xms256m -jar {{SERVER_JARFILE}}",
     "config": {
         "files": "{}",
         "startup": "{}",
