@@ -18,4 +18,4 @@ If you are reading this it looks like you are looking to add an egg to your serv
 
 [Minecraft](minecraft)
 
-* [CloudNetv3](minecraft/cloudnetv3) CloudNet is an alternative application that can dynamically and easy deploy Minecraft oriented software. 
+* [CloudNet](minecraft/cloudnet) CloudNet is an alternative application that can dynamically and easy deploy Minecraft oriented software. 
